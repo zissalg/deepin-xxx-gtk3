@@ -9,6 +9,7 @@ $fg_color: if($variant =='light', #090909, #D3D3D3);
 
 $selected_fg_color: #ffffff;
 $selected_bg_color: #2CA7F8;
+$selected_bg_color2: rgb(72, 177, 247);
 $selected_borders_color: #1088FF;
 $borders_color: if($variant == 'light', #E0E0E0, #444444);
 $placessidebar_selected_bg_color: #D0E8FA;
