@@ -1056,10 +1056,9 @@ headerbar,
   .csd &.default-decoration:backdrop {
     min-height: 27px;
     padding: 0px 3px;
-    background-color: opacify($header_bg, 1);
     border-bottom-width: 1px;
     border-bottom-color: $borders_color;
-
+    background-color: $header_bg;
     .maximized & { background-color: opacify($header_bg, 1); }
   }
 

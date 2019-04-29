@@ -2,16 +2,16 @@
 // it gets @if ed depending on $variant
 
 // @Done
-$base_color: if($variant =='light', #FFFFFF, #2D2D2D);
+$base_color: if($variant =='light', #FFFFFF, #1d1d1d);
 $text_color: if($variant == 'light', #090909, #D3D3D3);
-$bg_color: if($variant =='light', #F9F9FA, #222222);
+$bg_color: if($variant =='light', #F9F9FA, #2D2D2D);
 $fg_color: if($variant =='light', #090909, #D3D3D3);
 
 $selected_fg_color: #ffffff;
 $selected_bg_color: #2CA7F8;
 $selected_bg_color2: rgb(72, 177, 247);
 $selected_borders_color: #1088FF;
-$borders_color: if($variant == 'light', #E0E0E0, #444444);
+$borders_color: if($variant == 'light', #E6E6E6, #444444);
 $placessidebar_selected_bg_color: #D0E8FA;
 
 $link_color: if($variant == 'light', darken($selected_bg_color,10%),
@@ -40,17 +40,21 @@ $insensitive_bg_color: if($variant == 'light', mix($bg_color, $base_color, 10%),
 
 // @DONE
 $header_bg: red;
-@if $transparency=='true' and $variant=='light' { $header_bg: transparentize(#FFFFFF, 0.05); }
-@if $transparency=='false' and $variant=='light' { $header_bg: #FFFFFF; }
+@if $transparency=='true' and $variant=='light' { $header_bg: transparentize($bg_color, 0.05); }
+@if $transparency=='false' and $variant=='light' { $header_bg: $bg_color; }
 
 // @FIXME
 @if $transparency=='true' and ($variant=='dark' or $darker=='true') { $header_bg: transparentize(#2f343f, 0.03); }
 @if $transparency=='false' and ($variant=='dark' or $darker=='true') { $header_bg: $base_color; }
 
+// TITLEBAR
+$titlebar_bg: $selected_bg_color;
+$titlebar_fg: #FFFFFF;
+$titlebar_border: $titlebar_bg;
 
 $header_bg_backdrop: if($darker == 'true' or $variant == 'dark', lighten($header_bg, 1.5%), lighten($header_bg, 3%));
 
-$header_border: $borders_color;
+$header_border: if($variant == 'light', $bg_color, $base_color);
 
 $header_fg: $fg_color;
 
@@ -62,7 +66,7 @@ $osd_fg_color: $dark_sidebar_fg;
 $osd_bg_color: $dark_sidebar_bg;
 
 $osd_button_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
-$osd_button_border: transparentize(darken($osd_bg_color, 12%), 0.6);
+$osd_button_border: $borders_color;
 
 $osd_entry_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
 $osd_entry_border: transparentize(darken($osd_bg_color, 12%), 0.6);
@@ -84,7 +88,7 @@ $button_bg: $base_color;
 $button_hover_bg: if($variant=='light', #F0F0F0, #202020);
 $button_border: $entry_border;
 $header_button_bg: if($darker == 'true' or $variant == 'dark', transparentize(lighten($header_bg, 22%), 0.6), transparentize($button_bg, 0.1));
-$header_button_border: darken($borders_color, 10%);
+$header_button_border: if($variant == 'light', $borders_color, $header_button_bg);
 
 //WM Buttons
 
